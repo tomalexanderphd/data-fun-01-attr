@@ -1,36 +1,30 @@
-''' This module provides a reusable byline for the author's services. '''
-import math
 import statistics
 
-company_name: str = "Stellar Analytics Inc."
-count_active_projects: int = 5
-has_international_presence: bool = False
-average_client_satisfaction: float = 4.7
-services_offered: list = ["Data Analysis", "Machine Learning Consulting", "Business Intelligence Solutions"]
-satisfaction_scores: list = [4.8, 4.6, 4.9, 5.0, 4.7]
-company_name: str = "Alexander Analytics Inc."
-count_active_projects: int = 5
-has_international_presence: bool = False
-average_client_satisfaction: float = 4.7
-services_offered: list = ["Data Analysis", "Machine Learning Consulting", "Business Intelligence Solutions"]
-satisfaction_scores: list = [4.8, 4.6, 4.9, 5.0, 4.7]
+# Variables
+company_name = "Alexander Analytics"
+count_active_projects = 10
+has_international_presence = True
+average_client_satisfaction = 9.8
+services_offered = ["Data Analysis", "Machine Learning Consulting", "Business Intelligence Solutions"]
+satisfaction_scores = [9.7, 9.9, 9.7, 9.9, 9.8]
 
-active_projects_string: str = f"Active Projects: {count_active_projects}"
-international_presence_string: str = f"International Presence: {has_international_presence}"
-client_satisfaction_string: str = f"Average Client Satisfaction: {average_client_satisfaction}"
+# f-strings
+active_projects_string = f"Active Projects: {count_active_projects}"
+international_presence_string = f"International Presence: {has_international_presence}"
+client_satisfaction_string = f"Average Client Satisfaction: {average_client_satisfaction}"
+services_offered_string = f"Services Offered: {', '.join(services_offered)}"
 
-import statistics
+# Stats
+smallest = min(satisfaction_scores)
+largest = max(satisfaction_scores)
+total = sum(satisfaction_scores)
+count = len(satisfaction_scores)
+mean = statistics.mean(satisfaction_scores)
+mode = statistics.mode(satisfaction_scores)
+median = statistics.median(satisfaction_scores)
+standard_deviation = statistics.stdev(satisfaction_scores)
 
-smallest= min(satisfaction_scores)
-largest= max(satisfaction_scores)
-total= sum(satisfaction_scores)
-count= len(satisfaction_scores)
-mean= statistics.mean(satisfaction_scores)
-mode= statistics.mode(satisfaction_scores)
-median= statistics.median(satisfaction_scores)
-standard_deviation=statistics.stdev(satisfaction_scores)
-
-stats_string: str = f"""
+stats_string = f"""
 Descriptive Statistics for Our Satisfaction Scores:
   Smallest: {smallest}
   Largest: {largest}
@@ -42,14 +36,7 @@ Descriptive Statistics for Our Satisfaction Scores:
   Standard Deviation: {standard_deviation}
 """
 
-byline: str = f"""
-{company_name}
-{active_projects_string}
-{international_presence_string}
-{client_satisfaction_string}
-{services_offered_string}
-{stats_string}
-"""
+# Define main function
 def main():
     ''' Display all output'''
     print(company_name)
@@ -57,11 +44,12 @@ def main():
     print(international_presence_string)
     print(client_satisfaction_string)
     print(services_offered_string)
-    print(numbers_string)
     print(stats_string)
 
     # If all of the above works, then the byline should work too:
+    byline = f"{company_name}\n{active_projects_string}\n{international_presence_string}\n{client_satisfaction_string}\n{services_offered_string}\n{stats_string}"
     print(byline)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
+
